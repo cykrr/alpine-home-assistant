@@ -47,8 +47,11 @@ jobs:
           su actions -c "echo \"$ABUILD_PUBKEY\" > ~/.abuild/${{ secrets.ABUILD_KEYNAME }}.pub"
           su actions -c "echo PACKAGER_PRIVKEY=\"/home/actions/.abuild/${{ secrets.ABUILD_KEYNAME }}\" > ~/.abuild/abuild.conf"
           cp /home/actions/.abuild/${{ secrets.ABUILD_KEYNAME }}.pub /etc/apk/keys/${{ secrets.ABUILD_KEYNAME }}.pub
+          echo prev build all
           su actions -c ./build_all.sh
+          echo after build all
           cp -R /home/actions/packages/*/* /repo/
+          echo after copy
 
       - name: Deploy APK repo to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
