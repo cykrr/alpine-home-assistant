@@ -42,7 +42,7 @@ jobs:
           chmod +x ./build_all.sh
           chmod -R a+w .
           su actions -c "mkdir -p ~/packages/alpine-home-assistant"
-          su actions -c "mkdir -p ~/.abuild/"
+          # su actions -c "mkdir -p ~/.abuild/"
           su actions -c "echo \"$ABUILD_PRIVKEY\" > ~/.abuild/${{ secrets.ABUILD_KEYNAME }}"
           su actions -c "echo \"$ABUILD_PUBKEY\" > ~/.abuild/${{ secrets.ABUILD_KEYNAME }}.pub"
           su actions -c "echo PACKAGER_PRIVKEY=\"/home/actions/.abuild/${{ secrets.ABUILD_KEYNAME }}\" > ~/.abuild/abuild.conf"
