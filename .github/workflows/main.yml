@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         arch:
-          - arm64
+          - aarch64
     steps:
       - name: Checkout
         uses: actions/checkout@v3
